@@ -1,0 +1,8 @@
+type  diary  @model {
+	id: ID!
+	userId: String!
+	createdAt: String 
+	updatedAt: String 
+	title: String!
+	desc: String
+}

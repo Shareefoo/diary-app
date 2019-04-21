@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Diary App</string>
+
+    <string name="menu_logout">Logout</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_delete">Delete</string>
+
+    <string name="no_diaries">No Diaries Found</string>
+    <string name="no_connection">No Internet Connection</string>
+
+    <string name="title_activity_add_diary">Add Diary</string>
+    <string name="title_activity_update_diary">Update Diary</string>
+    <string name="title_activity_diaries">My Diaries</string>
+
+    <string name="please_wait">Please wait..</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+
+    <string name="add_diary">Add Diary</string>
+    <string name="update_diary">Update Diary</string>
+</resources>

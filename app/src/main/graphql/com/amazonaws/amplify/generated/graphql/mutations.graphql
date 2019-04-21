@@ -1,0 +1,31 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateDiary($input: CreateDiaryInput!) {
+  createDiary(input: $input) {
+    id
+    userId
+    createdAt
+    updatedAt
+    title
+    desc
+  }
+}
+mutation UpdateDiary($input: UpdateDiaryInput!) {
+  updateDiary(input: $input) {
+    id
+    userId
+    createdAt
+    updatedAt
+    title
+    desc
+  }
+}
+mutation DeleteDiary($input: DeleteDiaryInput!) {
+  deleteDiary(input: $input) {
+    id
+    userId
+    createdAt
+    updatedAt
+    title
+    desc
+  }
+}

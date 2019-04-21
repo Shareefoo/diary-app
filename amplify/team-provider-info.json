@@ -1,0 +1,19 @@
+{
+    "android": {
+        "awscloudformation": {
+            "AuthRoleName": "diaryapp-20190420184019-authRole",
+            "UnauthRoleArn": "arn:aws:iam::390591370435:role/diaryapp-20190420184019-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::390591370435:role/diaryapp-20190420184019-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "diaryapp-20190420184019-deployment",
+            "UnauthRoleName": "diaryapp-20190420184019-unauthRole",
+            "StackName": "diaryapp-20190420184019",
+            "StackId": "arn:aws:cloudformation:us-east-2:390591370435:stack/diaryapp-20190420184019/9b8abd50-6382-11e9-bf32-0ae094dd1c0e"
+        },
+        "categories": {
+            "auth": {
+                "cognito4b6dd13d": {}
+            }
+        }
+    }
+}
