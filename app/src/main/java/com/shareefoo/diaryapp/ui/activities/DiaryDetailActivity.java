@@ -1,6 +1,7 @@
 package com.shareefoo.diaryapp.ui.activities;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.shareefoo.diaryapp.utils.NetworkUtils;
 import javax.annotation.Nonnull;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -110,22 +112,41 @@ public class DiaryDetailActivity extends AppCompatActivity {
         }
     }
 
-    private void deleteDiary(String id) {
+    private void deleteDiary(String diaryId) {
         // Check for internet connection
         if (NetworkUtils.IsNetworkAvailable(this)) {
+            // Show confirmation prompt
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage(getString(R.string.delete_prompt));
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // Show progress dialog
+                            mProgressDialog = ProgressDialog.show(DiaryDetailActivity.this, null, getString(R.string.please_wait));
 
-            // Show progress dialog
-            mProgressDialog = ProgressDialog.show(this, null, getString(R.string.please_wait));
+                            DeleteDiaryInput input = DeleteDiaryInput.builder()
+                                    .id(diaryId)
+                                    .build();
 
-            DeleteDiaryInput input = DeleteDiaryInput.builder()
-                    .id(id)
-                    .build();
+                            DeleteDiaryMutation deleteDiaryMutation = DeleteDiaryMutation.builder()
+                                    .input(input)
+                                    .build();
+                            ClientFactory.appSyncClient().mutate(deleteDiaryMutation).enqueue(mutateCallback);
+                        }
+                    });
 
-            DeleteDiaryMutation deleteDiaryMutation = DeleteDiaryMutation.builder()
-                    .input(input)
-                    .build();
-            ClientFactory.appSyncClient().mutate(deleteDiaryMutation).enqueue(mutateCallback);
+            builder1.setNegativeButton(
+                    "Cancel",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
 
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
         } else {
             Toast.makeText(this, getString(R.string.no_connection), Toast.LENGTH_LONG).show();
         }

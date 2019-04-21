@@ -18,4 +18,5 @@
 
     <string name="add_diary">Add Diary</string>
     <string name="update_diary">Update Diary</string>
+    <string name="delete_prompt">Are you sure you want to delete this diary ?</string>
 </resources>
