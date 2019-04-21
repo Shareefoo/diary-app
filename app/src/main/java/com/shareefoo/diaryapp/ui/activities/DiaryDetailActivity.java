@@ -30,6 +30,7 @@ import butterknife.ButterKnife;
 import type.DeleteDiaryInput;
 import type.UpdateDiaryInput;
 
+// TODO: Display Edit/Delete options on Tablet Layout
 public class DiaryDetailActivity extends AppCompatActivity {
 
     private final static String TAG = DiaryDetailActivity.class.getSimpleName();
